@@ -1,0 +1,49 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    products: [Product]!
+    product(id: ID!): Product!
+}
+
+type Mutation {
+    createCart(user: UserInput): ID
+    addProductToCart(product: ProductInput): Boolean
+    removeProductFromCart(id: ID, product: ProductInput): Boolean
+    #
+    createProduct(productInput: ProductInput): Int
+}
+
+input UserInput {
+    id: ID!
+    name: String!
+}
+
+input ProductInput {
+    name: String!
+    description: String
+    price: Int
+    quantityInStock: Int
+    purchaseQuantity: Int
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String
+  price: Int
+  quantityInStock: Int
+  purchaseQuantity: Int
+}
+
+type Cart {
+  id: ID!
+  selectedProducts: [Product]
+}
+
+enum PatchSize {
+  SMALL
+  LARGE
+}
