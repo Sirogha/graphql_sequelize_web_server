@@ -10,7 +10,7 @@ const getProduct = (id) => {
 
 const createProduct = async (data) => {
     return models.product.create({
-        name: data.productInput.name1,
+        name: data.productInput.name,
         description: data.productInput.description,
         price: data.productInput.price,
         quantityInStock: data.productInput.quantityInStock

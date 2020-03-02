@@ -11,13 +11,8 @@
   },
   "test": {
     "use_env_variable": false,
-    "username": "postgres",
-    "password": "235",
-    "database": "test",
-    "host": "localhost",
-    "port": "12235",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "sqlite",
+    "storage": ":memory:"
   },
   "production": {
     "use_env_variable": false,
