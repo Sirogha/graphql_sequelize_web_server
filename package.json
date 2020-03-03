@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test npm run lint && jest",
-    "run": "node start.js",
+    "start": "node start.js",
     "lint": "eslint . --ext .js --ignore-path .gitignore"
   },
   "husky": {

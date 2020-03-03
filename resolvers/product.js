@@ -1,12 +1,17 @@
 const models = require('../models');
 
-const products = () => {
-    return [1];
+const getProducts = () => {
+    return models.product.findAll().then((result) => {
+        return result;
+    }).catch((err) => {
+        console.error(err);
+        throw err;
+    });
 };
 
-const getProduct = (id) => {
-    return models.product.find({id: id}).then((result) => {
-        return result.dataValues.id;
+const getProduct = (data) => {
+    return models.product.findByPk(data.id).then((result) => {
+        return result;
     }).catch((err) => {
         console.error(err);
         throw err;
@@ -28,7 +33,7 @@ const createProduct = async (data) => {
 };
 
 const productResolver = {
-    products,
+    getProducts,
     getProduct,
     createProduct
 };

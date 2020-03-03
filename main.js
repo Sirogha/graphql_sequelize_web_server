@@ -1,6 +1,6 @@
 'use strict';
 require('./config');
-
+console.log(`NODE_ENV = ${process.env.NODE_ENV}`);
 const express = require('express');
 const graphqlExpress = require('express-graphql');
 const { buildSchema, Source } = require('graphql');
@@ -13,7 +13,7 @@ fs.readFile('./schemas/schema.graphql', {encoding: 'utf8'}, (err, result) => {
     if (err) throw 'Bad graphql schema file path';
     models.sequelize.sync().then(() => {
         app.use('/graphql', graphqlExpress({
-            schema: buildSchema(new Source(result,'schemas/schema.graphql', 0)),
+            schema: buildSchema(new Source(result,'schema.graphql1', 0)),
             rootValue: resolvers,
             graphiql: true
         }));

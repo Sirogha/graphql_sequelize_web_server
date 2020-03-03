@@ -4,8 +4,8 @@ schema {
 }
 
 type Query {
-    products: [Product]!
-    product(id: ID!): Product!
+    getProducts: [Product]!
+    getProduct(id: ID!): Product!
 }
 
 type Mutation {
