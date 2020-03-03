@@ -12,16 +12,16 @@ const app = express();
 fs.readFile('./schemas/schema.graphql', {encoding: 'utf8'}, (err, result) => {
     if (err) throw 'Bad graphql schema file path';
     models.sequelize.sync().then(() => {
-        // only for Heroku
-        app.use('/', (req, res) => {
-           return res.status(200).send('<body>My app in graphql on link:<a href="/graphql">GraphQl app</a></body>')
-        });
         app.use('/graphql', graphqlExpress({
             schema: buildSchema(new Source(result,'schema.graphql1', 0)),
             rootValue: resolvers,
             graphiql: true
         }));
-        app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
+        // only for Heroku
+        app.use('/', (req, res) => {
+            return res.status(200).send('<body>My app in graphql on link:<a href="/graphql">GraphQl app</a></body>')
+        });
+        app.listen(process.env.PORT || 4000, () => console.log('Now browse to localhost:4000/graphql'));
     }).catch((err) => {
         console.error(err);
         throw 'Sequelize sync error';
