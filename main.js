@@ -14,7 +14,7 @@ fs.readFile('./schemas/schema.graphql', {encoding: 'utf8'}, (err, result) => {
     models.sequelize.sync().then(() => {
         // only for Heroku
         app.use('/', (req, res) => {
-           return res.status(200).html('<body>My app in graphql on link:<a href="/graphql">GraphQl app</a></body>')
+           return res.status(200).send('<body>My app in graphql on link:<a href="/graphql">GraphQl app</a></body>')
         });
         app.use('/graphql', graphqlExpress({
             schema: buildSchema(new Source(result,'schema.graphql1', 0)),
