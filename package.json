@@ -7,6 +7,11 @@
     "test": "cross-env NODE_ENV=test jest",
     "run": "node start.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -23,6 +28,7 @@
     "sqlite": "^3.0.3"
   },
   "devDependencies": {
-    "cross-env": "^7.0.0"
+    "cross-env": "^7.0.0",
+    "husky": "^4.2.3"
   }
 }
