@@ -33,6 +33,6 @@ test('create product shoes', () => {
 
 test('get all products', () => {
     return resolvers.getProducts().then((data) => {
-        expect(data.length).toEqual(1)
+        expect(data.length).toEqual(2)
     });
 });
