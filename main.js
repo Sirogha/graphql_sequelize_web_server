@@ -12,6 +12,10 @@ const app = express();
 fs.readFile('./schemas/schema.graphql', {encoding: 'utf8'}, (err, result) => {
     if (err) throw 'Bad graphql schema file path';
     models.sequelize.sync().then(() => {
+        // only for Heroku
+        app.use('/', (req, res) => {
+           return res.status(200).html('<body>My app in graphql on link:<a href="/graphql">GraphQl app</a></body>')
+        });
         app.use('/graphql', graphqlExpress({
             schema: buildSchema(new Source(result,'schema.graphql1', 0)),
             rootValue: resolvers,
