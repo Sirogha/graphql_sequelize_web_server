@@ -5,7 +5,12 @@ const products = () => {
 };
 
 const getProduct = (id) => {
-    return {a: 1};
+    return models.product.find({id: id}).then((result) => {
+        return result.dataValues.id;
+    }).catch((err) => {
+        console.error(err);
+        throw err;
+    });
 };
 
 const createProduct = async (data) => {

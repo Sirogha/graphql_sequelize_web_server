@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest",
-    "run": "node start.js"
+    "test": "cross-env NODE_ENV=test npm run lint && jest",
+    "run": "node start.js",
+    "lint": "eslint . --ext .js --ignore-path .gitignore"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run lint"
     }
   },
   "keywords": [],
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.0",
+    "eslint": "^6.8.0",
     "husky": "^4.2.3"
   }
 }

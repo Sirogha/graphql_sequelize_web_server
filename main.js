@@ -1,5 +1,5 @@
 'use strict';
-const config = require('./config');
+require('./config');
 
 const express = require('express');
 const graphqlExpress = require('express-graphql');
@@ -9,7 +9,7 @@ const fs = require('fs');
 const models = require('./models');
 
 const app = express();
-const graphQLSchema = fs.readFile('./schemas/schema.graphql', {encoding: 'utf8'}, (err, result) => {
+fs.readFile('./schemas/schema.graphql', {encoding: 'utf8'}, (err, result) => {
     if (err) throw 'Bad graphql schema file path';
     models.sequelize.sync().then(() => {
         app.use('/graphql', graphqlExpress({

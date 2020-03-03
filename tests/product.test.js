@@ -1,5 +1,5 @@
 'use strict';
-const config = require('../config');
+require('../config');
 const models = require('../models');
 const resolvers = require('../resolvers');
 
