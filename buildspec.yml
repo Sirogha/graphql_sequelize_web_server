@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm install
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Start test
+      - npm test
+artifacts:
+  files:
+    - target/start.js
+    - appspec.yml
+  discard-paths: yes

@@ -1,0 +1,6 @@
+{
+  "schemaPath": "schemas/schema.json",
+  "extensions": {
+    "endpoints": {}
+  }
+}
