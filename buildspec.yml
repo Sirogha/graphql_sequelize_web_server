@@ -12,6 +12,18 @@ phases:
       - npm test
 artifacts:
   files:
-    - target/start.js
+    - start.js
+    - main.js
+    - graphql.config.json
+    - .graphqlconfig
+    - .env
+    - LICENSE
+    - package.json
+    - README.md
+    - package-lock.json
     - appspec.yml
+    - schemas/*
+    - resolvers/*
+    - models/*
+    - config/*
   discard-paths: yes
