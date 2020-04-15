@@ -26,4 +26,4 @@ artifacts:
     - resolvers/**/*
     - models/**/*
     - config/**/*
-  discard-paths: yes
+  discard-paths: no
