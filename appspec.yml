@@ -2,13 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/
+    destination: /home/ubuntu/app
 hooks:
   AfterInstall:
     - location: aws_scripts/install.sh
       timeout: 120
       runas: ubuntu
   ApplicationStart:
-    - location: npm start
+    - location: /home/ubuntu/app/aws_scripts/start.sh
       timeout: 30
       runas: ubuntu
