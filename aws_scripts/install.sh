@@ -1,3 +1,6 @@
 uname -r
 id -u
-/home/ubuntu/.nvm/versions/node/v14.3.0/lib/node_modules/npm install
+export NVM_DIR="/home/ubuntu/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+/home/ubuntu/.nvm/versions/node/v14.3.0/bin/npm
+npm install
