@@ -6,9 +6,9 @@ files:
 hooks:
   AfterInstall:
     - location: npm install
-      timeout: 300
-      runas: root
+      timeout: 120
+      runas: ubuntu
   ApplicationStart:
-    - location: npm start #start script for the website
-      timeout: 300
-      runas: root
+    - location: npm start
+      timeout: 30
+      runas: ubuntu
