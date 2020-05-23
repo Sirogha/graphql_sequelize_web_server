@@ -25,6 +25,7 @@ artifacts:
     - README.md
     - package-lock.json
     - appspec.yml
+    - aws_scripts/**/*
     - schemas/**/*
     - resolvers/**/*
     - models/**/*
