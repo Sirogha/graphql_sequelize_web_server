@@ -1,5 +1,10 @@
 version: 0.0
 os: linux
 files:
-  - source: ./start.js
-    destination: /tmp
+  - source: /
+    destination: /home/ubuntu/
+hooks:
+  ApplicationStart:
+    - location: npm start #start script for the website
+      timeout: 300
+      runas: ec2-user
